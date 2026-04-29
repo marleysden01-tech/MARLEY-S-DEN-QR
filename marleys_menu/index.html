@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marley's Den Menu</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", Arial, sans-serif;
+      background: #f4d8d0;
+      color: #333;
+    }
+
+    .phone {
+      max-width: 430px;
+      margin: 25px auto;
+      background: #fff;
+      border-radius: 28px;
+      padding: 24px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      min-height: 90vh;
+    }
+
+    .logo {
+      text-align: center;
+      font-size: 34px;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3 {
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .category-btn {
+      border: none;
+      background: #f4f4f4;
+      padding: 8px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 13px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .category-btn.active {
+      background: #243f73;
+      color: #fff;
+    }
+
+    .note {
+      text-align: center;
+      font-size: 11px;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      padding: 10px;
+      margin: 20px 0;
+    }
+
+    .section-title {
+      margin-top: 25px;
+      font-size: 22px;
+      text-align: left;
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 14px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .item-name {
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .item-desc {
+      font-size: 11px;
+      color: #888;
+      margin-top: 5px;
+      line-height: 1.4;
+      max-width: 260px;
+    }
+
+    .price {
+      font-size: 14px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="phone">
+    <div class="logo">☕</div>
+    <h3>Categories</h3>
+
+    <div class="categories">
+      <button class="category-btn active" onclick="showCategory('maggi', this)">🍜 Maggi</button>
+      <button class="category-btn" onclick="showCategory('tea', this)">☕ Tea</button>
+      <button class="category-btn" onclick="showCategory('coffee', this)">🥤 Coffee</button>
+      <button class="category-btn" onclick="showCategory('snacks', this)">🍟 Snacks</button>
+      <button class="category-btn" onclick="showCategory('shakes', this)">🥛 Shakes</button>
+      <button class="category-btn" onclick="showCategory('mojitos', this)">🍹 Mojitos</button>
+      <button class="category-btn" onclick="showCategory('egg', this)">🥚 Egg Corner</button>
+      <button class="category-btn" onclick="showCategory('biryani', this)">🍗 Biryani</button>
+      <button class="category-btn" onclick="showCategory('healthy', this)">🍓 Healthy Bowls</button>
+      <button class="category-btn" onclick="showCategory('juices', this)">🧃 Juices</button>
+    </div>
+
+    <div class="note">Prices inclusive of taxes</div>
+
+    <div id="maggi" class="menu-category">
+      <h2>🍜 Maggi Specials</h2>
+      <div class="item"><div><div class="item-name">Classic Maggi</div></div><div class="price">₹45</div></div>
+      <div class="item"><div><div class="item-name">Veg Loaded</div></div><div class="price">₹49</div></div>
+      <div class="item"><div><div class="item-name">Cheesy Fried</div></div><div class="price">₹59</div></div>
+      <div class="item"><div><div class="item-name">Pepper Maggi</div></div><div class="price">₹49</div></div>
+      <div class="item"><div><div class="item-name">Egg Maggi</div></div><div class="price">₹59</div></div>
+
+      <h3 class="section-title">Add-Ons</h3>
+      <div class="item"><div><div class="item-name">Extra Cheese</div></div><div class="price">₹20</div></div>
+      <div class="item"><div><div class="item-name">Extra Omelette</div></div><div class="price">₹20</div></div>
+      <div class="item"><div><div class="item-name">Half Boiled Omelette</div></div><div class="price">₹20</div></div>
+      <div class="item"><div><div class="item-name">Boiled Egg</div></div><div class="price">₹15</div></div>
+    </div>
+
+    <div id="tea" class="menu-category hidden">
+      <h2>☕ Tea</h2>
+      <div class="item"><div><div class="item-name">Single Tea</div></div><div class="price">₹10</div></div>
+      <div class="item"><div><div class="item-name">Full Tea</div></div><div class="price">₹15</div></div>
+      <div class="item"><div><div class="item-name">Black Tea</div></div><div class="price">₹15</div></div>
+      <div class="item"><div><div class="item-name">Ginger Tea</div></div><div class="price">₹15</div></div>
+      <div class="item"><div><div class="item-name">Ginger Lemon Tea</div></div><div class="price">₹20</div></div>
+      <div class="item"><div><div class="item-name">Elaichi Tea</div></div><div class="price">₹20</div></div>
+      <div class="item"><div><div class="item-name">Lemon Tea</div></div><div class="price">₹20</div></div>
+      <div class="item"><div><div class="item-name">Masala Tea</div></div><div class="price">₹20</div></div>
+      <div class="item"><div><div class="item-name">Jaggery Tea</div></div><div class="price">₹20</div></div>
+      <div class="item"><div><div class="item-name">Green Tea</div></div><div class="price">₹25</div></div>
+    </div>
+
+    <div id="coffee" class="menu-category hidden">
+      <h2>☕ Coffees</h2>
+      <div class="item"><div><div class="item-name">Coffee</div></div><div class="price">₹20</div></div>
+      <div class="item"><div><div class="item-name">Black Coffee</div></div><div class="price">₹15</div></div>
+      <div class="item"><div><div class="item-name">Ginger Coffee</div></div><div class="price">₹25</div></div>
+      <div class="item"><div><div class="item-name">Hot Chocolate</div></div><div class="price">₹49</div></div>
+      <div class="item"><div><div class="item-name">Cold Coffee</div></div><div class="price">₹59</div></div>
+    </div>
+
+    <div id="snacks" class="menu-category hidden">
+      <h2>🍟 Snacks</h2>
+      <div class="item"><div><div class="item-name">Samosa</div></div><div class="price">₹20</div></div>
+      <div class="item"><div><div class="item-name">French Fries</div></div><div class="price">₹59</div></div>
+    </div>
+
+    <div id="shakes" class="menu-category hidden">
+      <h2>🥛 Drinks & Shakes</h2>
+      <div class="item"><div><div class="item-name">Lime Soda</div></div><div class="price">₹39</div></div>
+      <div class="item"><div><div class="item-name">Iced Tea</div></div><div class="price">₹39</div></div>
+      <div class="item"><div><div class="item-name">Lassi</div></div><div class="price">₹49</div></div>
+      <div class="item"><div><div class="item-name">Butter Milk</div></div><div class="price">₹29</div></div>
+      <div class="item"><div><div class="item-name">Lemonade</div></div><div class="price">₹39</div></div>
+      <div class="item"><div><div class="item-name">Sharjah</div></div><div class="price">₹49</div></div>
+      <div class="item"><div><div class="item-name">Vanilla Milkshake</div></div><div class="price">₹49</div></div>
+      <div class="item"><div><div class="item-name">Black Current Milkshake</div></div><div class="price">₹49</div></div>
+      <div class="item"><div><div class="item-name">Oreo Milkshake</div></div><div class="price">₹49</div></div>
+      <div class="item"><div><div class="item-name">Chocolate Milkshake</div></div><div class="price">₹49</div></div>
+    </div>
+
+    <div id="mojitos" class="menu-category hidden">
+      <h2>🍹 Mojitos</h2>
+      <div class="item"><div><div class="item-name">Classic</div></div><div class="price">₹50</div></div>
+      <div class="item"><div><div class="item-name">Watermelon</div></div><div class="price">₹59</div></div>
+      <div class="item"><div><div class="item-name">Green Apple</div></div><div class="price">₹59</div></div>
+      <div class="item"><div><div class="item-name">Blueberry</div></div><div class="price">₹59</div></div>
+      <div class="item"><div><div class="item-name">Lime Mint Cooler</div></div><div class="price">₹59</div></div>
+    </div>
+
+    <div id="egg" class="menu-category hidden">
+      <h2>🥚 Egg Corner</h2>
+      <div class="item"><div><div class="item-name">Classic Omelette</div></div><div class="price">₹29</div></div>
+      <div class="item"><div><div class="item-name">Half Boiled Omelette</div></div><div class="price">₹29</div></div>
+      <div class="item"><div><div class="item-name">Bread Omelette</div></div><div class="price">₹39</div></div>
+      <div class="item"><div><div class="item-name">Cheese Omelette</div></div><div class="price">₹39</div></div>
+      <div class="item"><div><div class="item-name">Marley's Den Special Ross Omlette</div></div><div class="price">₹89</div></div>
+      <div class="item"><div><div class="item-name">Scrambled Eggs</div></div><div class="price">₹39</div></div>
+    </div>
+  
+
+  <div id="healthy" class="menu-category hidden">
+  <h2>🍓 Healthy Bowls</h2>
+
+  <div class="item">
+    <div>
+      <div class="item-name">Fruit Bowl</div>
+      <div class="item-desc">Fresh seasonal fruits served chilled</div>
+    </div>
+    <div class="price">₹49</div>
+  </div>
+
+</div>
+
+<div class="item">
+  <div>
+    <div class="item-name">Watermelon Juice</div>
+    <div class="item-desc">Fresh and hydrating summer drink</div>
+  </div>
+  <div class="price">₹49</div>
+</div>
+
+<div class="item">
+  <div>
+    <div class="item-name">Mango Juice</div>
+    <div class="item-desc">Sweet and rich seasonal mango juice</div>
+  </div>
+  <div class="price">₹59</div>
+</div>
+
+  <div id="biryani" class="menu-category hidden">
+  <h2>🍗 Biryani</h2>
+
+  <div class="item">
+    <div>
+      <div class="item-name">Chicken Biryani</div>
+    </div>
+    <div class="price">₹99</div>
+  </div>
+  </div>
+  <div class="item"><div><div class="item-name">Bread Omelette</div></div><div class="price">₹39</div></div>
+
+  <script>
+    function showCategory(categoryId, button) {
+      const categories = document.querySelectorAll(".menu-category");
+      categories.forEach(category => category.classList.add("hidden"));
+
+      document.getElementById(categoryId).classList.remove("hidden");
+
+      const buttons = document.querySelectorAll(".category-btn");
+      buttons.forEach(btn => btn.classList.remove("active"));
+
+      button.classList.add("active");
+    }
+  </script>
+
+</body>
+</html>
