@@ -228,12 +228,24 @@
     }
 
     .note {
+      width: fit-content;
+      margin: 28px auto 18px;
+      padding: 9px 16px;
       text-align: center;
-      font-size: 11px;
-      border-top: 1px solid #ddd;
-      border-bottom: 1px solid #ddd;
-      padding: 10px;
-      margin: 20px 0;
+      font-size: 12px;
+      color: #7c4f35;
+      background: #fff7f2;
+      border-radius: 999px;
+      box-shadow: 0 6px 16px rgba(36, 63, 115, 0.10);
+      border: 1px solid rgba(124, 79, 53, 0.12);
+    }
+
+    .note::before {
+      content: "✨ ";
+    }
+
+    .note::after {
+      content: " ✨";
     }
 
     .section-title {
@@ -382,7 +394,7 @@
     <div class="categories">
       <div class="categories">
         <button class="category-btn active" onclick="showCategory('maggi', this)">
-          <span class="emoji">🍲</span> Maggi
+          <span class="emoji">🍜</span> Maggi
         </button>
 
         <button class="category-btn" onclick="showCategory('tea', this)">
@@ -394,15 +406,15 @@
         </button>
 
         <button class="category-btn" onclick="showCategory('snacks', this)">
-          <span class="emoji">🍿</span> Snacks
+          <span class="emoji">🍟</span> Snacks
         </button>
 
         <button class="category-btn" onclick="showCategory('shakes', this)">
-          <span class="emoji">🍨</span> Drinks & Shakes
+          <span class="emoji">🧋</span> Drinks & Shakes
         </button>
 
         <button class="category-btn" onclick="showCategory('mojitos', this)">
-          <span class="emoji">🍸</span> Mojitos
+          <span class="emoji">🍹</span> Mojitos
         </button>
 
         <button class="category-btn" onclick="showCategory('egg', this)">
@@ -485,7 +497,7 @@
       </div>
 
       <div id="tea" class="menu-category hidden">
-        <h2>☕ Tea</h2>
+        <h2>🫖 Tea</h2>
         <div class="item">
           <div>
             <div class="item-name">Single Tea</div>
@@ -599,7 +611,7 @@
       </div>
 
       <div id="shakes" class="menu-category hidden">
-        <h2>🥛 Drinks & Shakes</h2>
+        <h2>🧋 Drinks & Shakes</h2>
         <div class="item">
           <div>
             <div class="item-name">Lime Soda</div>
@@ -709,7 +721,7 @@
       </div>
 
       <div id="egg" class="menu-category hidden">
-        <h2>🥚 Egg Corner</h2>
+        <h2>🍳 Egg Corner</h2>
         <div class="item">
           <div>
             <div class="item-name">Classic Omelette</div>
@@ -750,7 +762,7 @@
 
 
       <div id="healthy" class="menu-category hidden">
-        <h2>🍓 Healthy Bowls</h2>
+        <h2>🥗 Healthy Bowls</h2>
 
         <div class="item">
           <div>
