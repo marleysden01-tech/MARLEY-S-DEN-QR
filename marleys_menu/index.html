@@ -19,7 +19,7 @@
         radial-gradient(circle at top left, rgba(255, 220, 205, 0.9), transparent 35%),
         radial-gradient(circle at bottom right, rgba(36, 63, 115, 0.18), transparent 35%),
         linear-gradient(135deg, #fff4ec, #f4d8d0);
-      min-height: auto;
+      min-height: 100dvh;
       overflow-x: hidden;
       padding: 8px 0 14px;
     }
@@ -85,7 +85,6 @@
       backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.8);
       animation: pageEnter 0.8s ease;
-      box-sizing: border-box;
       min-height: auto;
     }
 
@@ -130,6 +129,7 @@
     h3 {
       color: #7c4f35;
       font-size: 16px;
+      margin: 12px 0;
     }
 
     .tagline {
@@ -263,18 +263,19 @@
     }
 
     .item {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      padding: 14px;
-      margin: 10px 0;
-      border-bottom: none;
-      background: #fffaf7;
-      border-radius: 18px;
-      box-shadow: 0 5px 16px rgba(36, 63, 115, 0.08);
-      animation: itemSlide 0.45s ease;
-      transition: all 0.25s ease;
-    }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 14px;
+    margin: 8px 0;
+    border-bottom: none;
+    background: #fffaf7;
+    border-radius: 18px;
+    box-shadow: 0 5px 16px rgba(36, 63, 115, 0.08);
+    animation: itemSlide 0.45s ease;
+    transition: all 0.25s ease;
+  }
 
     .item:hover {
       transform: translateY(-3px);
