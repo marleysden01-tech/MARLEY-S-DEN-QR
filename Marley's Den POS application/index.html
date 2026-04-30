@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Marley's Den POS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Marley's Den POS</h1>
+
+  <div class="app">
+
+    <div class="menu">
+      <h2>Menu</h2>
+
+      <button onclick="addItem('Classic Maggi', 45)">Classic Maggi - ₹45</button>
+      <button onclick="addItem('Veg Loaded', 49)">Veg Loaded - ₹49</button>
+      <button onclick="addItem('Tea', 10)">Tea - ₹10</button>
+      <button onclick="addItem('Coffee', 20)">Coffee - ₹20</button>
+      <button onclick="addItem('Samosa', 20)">Samosa - ₹20</button>
+      <button onclick="addItem('Chicken Biryani', 99)">Chicken Biryani - ₹99</button>
+    </div>
+
+    <div class="cart">
+      <h2>Bill</h2>
+      <div id="cartItems"></div>
+
+      <h3>Total: ₹<span id="total">0</span></h3>
+
+      <select id="paymentMode">
+        <option>Cash</option>
+        <option>UPI</option>
+        <option>Card</option>
+      </select>
+
+      <button onclick="printBill()">Print Bill</button>
+      <button onclick="clearCart()">Clear</button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
