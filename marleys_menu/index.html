@@ -99,243 +99,46 @@
       white-space: nowrap;
     }
     
-    /* ---------------- SPLASH SCREEN ---------------- */
+    /* CHEF WELCOME SCREEN */
 
 .splash-screen {
   position: fixed;
-  inset: 0;
-  background: linear-gradient(135deg, #243f73 0%, #7c4f35 55%, #f4d8d0 100%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #f4d8d0;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  transition: opacity 0.6s ease, visibility 0.6s ease;
 }
 
 .splash-screen.fade-out {
   opacity: 0;
   visibility: hidden;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
 }
 
-.splash-content {
-  text-align: center;
-  color: white;
-  padding: 20px;
+.chef-welcome-image {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  animation: chefMove 2.5s ease-in-out infinite;
 }
 
-.splash-content h1 {
-  color: white;
-  margin: 8px 0;
-  font-size: 28px;
-}
+@keyframes chefMove {
+  0% {
+    transform: scale(1) translateY(0);
+  }
 
-.splash-content p {
-  color: white;
-  font-size: 14px;
-  margin-top: 8px;
-}
+  50% {
+    transform: scale(1.04) translateY(-10px);
+  }
 
-.speech-bubble {
-  display: inline-block;
-  background: white;
-  color: #243f73;
-  padding: 12px 18px;
-  border-radius: 20px;
-  font-weight: 600;
-  margin-bottom: 16px;
-  position: relative;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-.speech-bubble::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -10px;
-  transform: translateX(-50%);
-  border-width: 10px 10px 0 10px;
-  border-style: solid;
-  border-color: white transparent transparent transparent;
-}
-
-.chef-scene {
-  width: 220px;
-  height: 250px;
-  margin: 0 auto 10px;
-  position: relative;
-}
-
-.chef {
-  width: 170px;
-  height: 220px;
-  margin: 0 auto;
-  position: relative;
-  animation: chefFloat 2s ease-in-out infinite;
-}
-
-.chef-hat {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90px;
-  height: 38px;
-  background: white;
-  border-radius: 18px;
-  z-index: 3;
-}
-
-.chef-hat::before,
-.chef-hat::after {
-  content: "";
-  position: absolute;
-  background: white;
-  border-radius: 50%;
-  top: -22px;
-}
-
-.chef-hat::before {
-  width: 42px;
-  height: 42px;
-  left: 6px;
-}
-
-.chef-hat::after {
-  width: 46px;
-  height: 46px;
-  right: 6px;
-}
-
-.chef-head {
-  position: absolute;
-  top: 38px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 82px;
-  height: 88px;
-  background: #ffd7b3;
-  border-radius: 45px;
-  z-index: 2;
-  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.05);
-}
-
-.eye {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: #333;
-  border-radius: 50%;
-  top: 30px;
-}
-
-.eye.left {
-  left: 22px;
-}
-
-.eye.right {
-  right: 22px;
-}
-
-.smile {
-  position: absolute;
-  width: 28px;
-  height: 14px;
-  border-bottom: 3px solid #a24d3b;
-  border-radius: 0 0 20px 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 48px;
-}
-
-.chef-body {
-  position: absolute;
-  top: 115px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 118px;
-  height: 95px;
-  background: white;
-  border-radius: 28px 28px 18px 18px;
-}
-
-.chef-body::before {
-  content: "";
-  position: absolute;
-  top: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 52px;
-  height: 12px;
-  background: #243f73;
-  border-radius: 20px;
-}
-
-.chef-body::after {
-  content: "";
-  position: absolute;
-  top: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 10px;
-  height: 42px;
-  background: linear-gradient(
-    to bottom,
-    #7c4f35 0%,
-    #7c4f35 20%,
-    transparent 20%,
-    transparent 40%,
-    #7c4f35 40%,
-    #7c4f35 60%,
-    transparent 60%,
-    transparent 80%,
-    #7c4f35 80%,
-    #7c4f35 100%
-  );
-}
-
-.chef-arm {
-  position: absolute;
-  top: 122px;
-  width: 18px;
-  height: 74px;
-  background: white;
-  border-radius: 20px;
-  transform-origin: top center;
-}
-
-.chef-arm::after {
-  content: "";
-  position: absolute;
-  bottom: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20px;
-  height: 20px;
-  background: #ffd7b3;
-  border-radius: 50%;
-}
-
-.left-arm {
-  left: 24px;
-  transform: rotate(28deg);
-}
-
-.right-arm {
-  right: 24px;
-  transform: rotate(-20deg);
-  animation: waveHand 1s ease-in-out infinite;
-}
-
-@keyframes waveHand {
-  0%   { transform: rotate(-20deg); }
-  50%  { transform: rotate(-55deg); }
-  100% { transform: rotate(-20deg); }
-}
-
-@keyframes chefFloat {
-  0%   { transform: translateY(0); }
-  50%  { transform: translateY(-8px); }
-  100% { transform: translateY(0); }
+  100% {
+    transform: scale(1) translateY(0);
+  }
 }
 
     .hidden {
@@ -346,31 +149,9 @@
 
 <body>
 
-  <!-- Cartoon Chef Welcome Screen -->
-<div class="splash-screen" id="splashScreen">
-  <div class="splash-content">
-    <div class="speech-bubble">Hi! Welcome to Marley's Den</div>
-
-    <div class="chef-scene">
-      <div class="chef">
-        <div class="chef-hat"></div>
-
-        <div class="chef-head">
-          <div class="eye left"></div>
-          <div class="eye right"></div>
-          <div class="smile"></div>
-        </div>
-
-        <div class="chef-body"></div>
-        <div class="chef-arm left-arm"></div>
-        <div class="chef-arm right-arm"></div>
-      </div>
-    </div>
-
-    <h1>Marley's Den</h1>
-    <p>Fresh • Tasty • Cozy</p>
+  <div class="splash-screen" id="splashScreen">
+    <img src="chef-welcome.png" alt="Welcome to Marley's Den" class="chef-welcome-image">
   </div>
-</div>
 
   <div class="phone" id="menuPage" style="display: none;">
     <h1>☕ Marley's Den ☕</h1>
@@ -518,20 +299,20 @@
 
   <script>
 
-    // Show chef welcome screen for 2.8 seconds, then open menu
-window.addEventListener("load", function () {
-  setTimeout(function () {
-    const splash = document.getElementById("splashScreen");
-    const menu = document.getElementById("menuPage");
+    window.addEventListener("load", function () {
+      setTimeout(function () {
+        const splash = document.getElementById("splashScreen");
+        const menu = document.getElementById("menuPage");
 
-    splash.classList.add("fade-out");
+        splash.classList.add("fade-out");
 
-    setTimeout(function () {
-      splash.style.display = "none";
-      menu.style.display = "block";
-    }, 600);
-  }, 2800);
-});
+        setTimeout(function () {
+          splash.style.display = "none";
+          menu.style.display = "block";
+        }, 600);
+
+      }, 3000);
+    });
 
     function showCategory(categoryId, button) {
       const categories = document.querySelectorAll(".menu-category");
