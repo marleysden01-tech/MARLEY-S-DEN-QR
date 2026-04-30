@@ -7,6 +7,10 @@
   <title>Marley's Den Menu</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: "Poppins", Arial, sans-serif;
@@ -15,8 +19,9 @@
         radial-gradient(circle at top left, rgba(255, 220, 205, 0.9), transparent 35%),
         radial-gradient(circle at bottom right, rgba(36, 63, 115, 0.18), transparent 35%),
         linear-gradient(135deg, #fff4ec, #f4d8d0);
-      min-height: 100vh;
+      min-height: auto;
       overflow-x: hidden;
+      padding: 8px 0 14px;
     }
 
     /* Animated Background Decoration */
@@ -70,16 +75,18 @@
     }
 
     .phone {
+      width: calc(100% - 20px);
       max-width: 430px;
-      margin: 25px auto;
-      background: rgba(255, 255, 255, 0.92);
-      border-radius: 32px;
-      padding: 24px;
-      box-shadow: 0 18px 45px rgba(36, 63, 115, 0.22);
-      min-height: 90vh;
+      margin: 12px auto 16px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 28px;
+      padding: 18px 16px 24px;
+      box-shadow: 0 12px 30px rgba(36, 63, 115, 0.14);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.8);
       animation: pageEnter 0.8s ease;
+      box-sizing: border-box;
+      min-height: auto;
     }
 
     @keyframes pageEnter {
@@ -110,14 +117,14 @@
     h1 {
       font-size: 30px;
       color: #243f73;
-      margin-bottom: 5px;
+      margin: 8px 0 4px;
       letter-spacing: 0.5px;
     }
 
     h2 {
       color: #243f73;
       font-size: 24px;
-      margin-top: 22px;
+      margin: 12px 0 10px;
     }
 
     h3 {
@@ -130,7 +137,7 @@
       font-size: 13px;
       color: #7c4f35;
       margin-top: -2px;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
       letter-spacing: 0.5px;
     }
 
@@ -139,8 +146,8 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 12px 10px;
-      margin: 18px 0 24px;
-      padding: 4px 6px;
+      margin: 16px 0 18px;
+      padding: 2px 4px;
     }
 
     .emoji {
@@ -229,7 +236,8 @@
 
     .note {
       width: fit-content;
-      margin: 28px auto 18px;
+      max-width: 92%;
+      margin: 18px auto 20px;
       padding: 9px 16px;
       text-align: center;
       font-size: 12px;
@@ -356,6 +364,7 @@
 
     .menu-category {
       animation: categoryFade 0.45s ease;
+      margin-top: 8px;
     }
 
     @keyframes categoryFade {
@@ -367,6 +376,40 @@
       to {
         opacity: 1;
         transform: translateX(0);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .phone {
+        width: calc(100% - 12px);
+        margin: 8px auto 12px;
+        padding: 16px 14px 20px;
+        border-radius: 24px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+
+      h2 {
+        font-size: 22px;
+        margin: 10px 0 8px;
+      }
+
+      .categories {
+        gap: 10px 8px;
+        margin: 14px 0 16px;
+      }
+
+      .note {
+        margin: 16px auto 16px;
+        font-size: 11px;
+        padding: 8px 14px;
+      }
+
+      .item {
+        padding: 12px;
+        margin: 8px 0;
       }
     }
 
