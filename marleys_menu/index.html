@@ -135,32 +135,90 @@
     }
 
     .categories {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px 10px;
-  margin: 18px 0 24px;
-  padding: 4px 6px;
-}
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px 10px;
+      margin: 18px 0 24px;
+      padding: 4px 6px;
+    }
+
+    .emoji {
+      display: inline-block;
+      margin-right: 4px;
+      animation: emojiBounce 1.8s ease-in-out infinite;
+    }
+
+    .category-btn:nth-child(2) .emoji {
+      animation-delay: 0.15s;
+    }
+
+    .category-btn:nth-child(3) .emoji {
+      animation-delay: 0.3s;
+    }
+
+    .category-btn:nth-child(4) .emoji {
+      animation-delay: 0.45s;
+    }
+
+    .category-btn:nth-child(5) .emoji {
+      animation-delay: 0.6s;
+    }
+
+    .category-btn:nth-child(6) .emoji {
+      animation-delay: 0.75s;
+    }
+
+    .category-btn:nth-child(7) .emoji {
+      animation-delay: 0.9s;
+    }
+
+    .category-btn:nth-child(8) .emoji {
+      animation-delay: 1.05s;
+    }
+
+    .category-btn:nth-child(9) .emoji {
+      animation-delay: 1.2s;
+    }
+
+    .category-btn:nth-child(10) .emoji {
+      animation-delay: 1.35s;
+    }
+
+    @keyframes emojiBounce {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+      }
+
+      30% {
+        transform: translateY(-4px) rotate(-8deg) scale(1.15);
+      }
+
+      60% {
+        transform: translateY(1px) rotate(6deg) scale(1);
+      }
+    }
 
     .category-btn {
-  border: none;
-  background: #fff7f2;
-  color: #243f73;
-  padding: 9px 13px;
-  border-radius: 22px;
-  cursor: pointer;
-  font-size: 13px;
-  box-shadow: 0 4px 12px rgba(36, 63, 115, 0.12);
-  transition: all 0.25s ease;
-  white-space: nowrap;
-  margin: 2px;
-}
+      border: none;
+      background: #fff7f2;
+      color: #243f73;
+      padding: 9px 13px;
+      border-radius: 22px;
+      cursor: pointer;
+      font-size: 13px;
+      box-shadow: 0 4px 12px rgba(36, 63, 115, 0.12);
+      transition: all 0.25s ease;
+      white-space: nowrap;
+      margin: 2px;
+    }
 
     .category-btn:hover {
-  transform: translateY(-3px);
-  background: #cc987a;
-}
+      transform: translateY(-3px);
+      background: #cc987a;
+    }
 
     .category-btn.active {
       background: #243f73;
@@ -322,417 +380,447 @@
     <h3>Categories</h3>
 
     <div class="categories">
-      <button class="category-btn active" onclick="showCategory('maggi', this)">🍜 Maggi</button>
-      <button class="category-btn" onclick="showCategory('tea', this)">☕ Tea</button>
-      <button class="category-btn" onclick="showCategory('coffee', this)">🥤 Coffee</button>
-      <button class="category-btn" onclick="showCategory('snacks', this)">🍟 Snacks</button>
-      <button class="category-btn" onclick="showCategory('shakes', this)">🥛 Drinks & Shakes</button>
-      <button class="category-btn" onclick="showCategory('mojitos', this)">🍹 Mojitos</button>
-      <button class="category-btn" onclick="showCategory('egg', this)">🥚 Egg Corner</button>
-      <button class="category-btn" onclick="showCategory('biryani', this)">🍗 Biryani</button>
-      <button class="category-btn" onclick="showCategory('healthy', this)">🍓 Healthy Bowls</button>
-      <button class="category-btn" onclick="showCategory('juices', this)">🧃 Juices</button>
-    </div>
+      <div class="categories">
+        <button class="category-btn active" onclick="showCategory('maggi', this)">
+          <span class="emoji">🍜</span> Maggi
+        </button>
 
-    <div class="note">Prices inclusive of taxes</div>
+        <button class="category-btn" onclick="showCategory('tea', this)">
+          <span class="emoji">☕</span> Tea
+        </button>
 
-    <div id="maggi" class="menu-category">
-      <h2>🍜 Maggi Specials</h2>
-      <div class="item">
-        <div>
-          <div class="item-name">Classic Maggi</div>
-        </div>
-        <div class="price">₹45</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Veg Loaded</div>
-        </div>
-        <div class="price">₹49</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Cheesy Fried</div>
-        </div>
-        <div class="price">₹59</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Pepper Maggi</div>
-        </div>
-        <div class="price">₹49</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Egg Maggi</div>
-        </div>
-        <div class="price">₹59</div>
+        <button class="category-btn" onclick="showCategory('coffee', this)">
+          <span class="emoji">🥤</span> Coffee
+        </button>
+
+        <button class="category-btn" onclick="showCategory('snacks', this)">
+          <span class="emoji">🍟</span> Snacks
+        </button>
+
+        <button class="category-btn" onclick="showCategory('shakes', this)">
+          <span class="emoji">🥛</span> Drinks & Shakes
+        </button>
+
+        <button class="category-btn" onclick="showCategory('mojitos', this)">
+          <span class="emoji">🍹</span> Mojitos
+        </button>
+
+        <button class="category-btn" onclick="showCategory('egg', this)">
+          <span class="emoji">🥚</span> Egg Corner
+        </button>
+
+        <button class="category-btn" onclick="showCategory('biryani', this)">
+          <span class="emoji">🍗</span> Biryani
+        </button>
+
+        <button class="category-btn" onclick="showCategory('healthy', this)">
+          <span class="emoji">🍓</span> Healthy Bowls
+        </button>
+
+        <button class="category-btn" onclick="showCategory('juices', this)">
+          <span class="emoji">🧃</span> Juices
+        </button>
       </div>
 
-      <h3 class="section-title">Add-Ons</h3>
-      <div class="item">
-        <div>
-          <div class="item-name">Extra Cheese</div>
-        </div>
-        <div class="price">₹20</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Extra Omelette</div>
-        </div>
-        <div class="price">₹20</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Half Boiled Omelette</div>
-        </div>
-        <div class="price">₹20</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Boiled Egg</div>
-        </div>
-        <div class="price">₹15</div>
-      </div>
-    </div>
+      <div class="note">Prices inclusive of taxes</div>
 
-    <div id="tea" class="menu-category hidden">
-      <h2>☕ Tea</h2>
-      <div class="item">
-        <div>
-          <div class="item-name">Single Tea</div>
+      <div id="maggi" class="menu-category">
+        <h2>🍜 Maggi Specials</h2>
+        <div class="item">
+          <div>
+            <div class="item-name">Classic Maggi</div>
+          </div>
+          <div class="price">₹45</div>
         </div>
-        <div class="price">₹10</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Full Tea</div>
+        <div class="item">
+          <div>
+            <div class="item-name">Veg Loaded</div>
+          </div>
+          <div class="price">₹49</div>
         </div>
-        <div class="price">₹15</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Black Tea</div>
+        <div class="item">
+          <div>
+            <div class="item-name">Cheesy Fried</div>
+          </div>
+          <div class="price">₹59</div>
         </div>
-        <div class="price">₹15</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Ginger Tea</div>
+        <div class="item">
+          <div>
+            <div class="item-name">Pepper Maggi</div>
+          </div>
+          <div class="price">₹49</div>
         </div>
-        <div class="price">₹15</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Ginger Lemon Tea</div>
+        <div class="item">
+          <div>
+            <div class="item-name">Egg Maggi</div>
+          </div>
+          <div class="price">₹59</div>
         </div>
-        <div class="price">₹20</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Elaichi Tea</div>
-        </div>
-        <div class="price">₹20</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Lemon Tea</div>
-        </div>
-        <div class="price">₹20</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Masala Tea</div>
-        </div>
-        <div class="price">₹20</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Jaggery Tea</div>
-        </div>
-        <div class="price">₹20</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Green Tea</div>
-        </div>
-        <div class="price">₹25</div>
-      </div>
-    </div>
 
-    <div id="coffee" class="menu-category hidden">
-      <h2>☕ Coffees</h2>
-      <div class="item">
-        <div>
-          <div class="item-name">Coffee</div>
+        <h3 class="section-title">Add-Ons</h3>
+        <div class="item">
+          <div>
+            <div class="item-name">Extra Cheese</div>
+          </div>
+          <div class="price">₹20</div>
         </div>
-        <div class="price">₹20</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Black Coffee</div>
+        <div class="item">
+          <div>
+            <div class="item-name">Extra Omelette</div>
+          </div>
+          <div class="price">₹20</div>
         </div>
-        <div class="price">₹15</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Ginger Coffee</div>
+        <div class="item">
+          <div>
+            <div class="item-name">Half Boiled Omelette</div>
+          </div>
+          <div class="price">₹20</div>
         </div>
-        <div class="price">₹25</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Hot Chocolate</div>
+        <div class="item">
+          <div>
+            <div class="item-name">Boiled Egg</div>
+          </div>
+          <div class="price">₹15</div>
         </div>
-        <div class="price">₹49</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Cold Coffee</div>
-        </div>
-        <div class="price">₹59</div>
-      </div>
-    </div>
-
-    <div id="snacks" class="menu-category hidden">
-      <h2>🍟 Snacks</h2>
-      <div class="item">
-        <div>
-          <div class="item-name">Samosa</div>
-        </div>
-        <div class="price">₹20</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">French Fries</div>
-        </div>
-        <div class="price">₹59</div>
-      </div>
-    </div>
-
-    <div id="shakes" class="menu-category hidden">
-      <h2>🥛 Drinks & Shakes</h2>
-      <div class="item">
-        <div>
-          <div class="item-name">Lime Soda</div>
-        </div>
-        <div class="price">₹39</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Iced Tea</div>
-        </div>
-        <div class="price">₹39</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Lassi</div>
-        </div>
-        <div class="price">₹49</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Butter Milk</div>
-        </div>
-        <div class="price">₹29</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Lemonade</div>
-        </div>
-        <div class="price">₹39</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Sharjah</div>
-        </div>
-        <div class="price">₹59</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Vanilla Milkshake</div>
-        </div>
-        <div class="price">₹59</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Black Current Milkshake</div>
-        </div>
-        <div class="price">₹59</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Green Apple Milkshake</div>
-        </div>
-        <div class="price">₹59</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Black Current Milkshake</div>
-        </div>
-        <div class="price">₹59</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Oreo Milkshake</div>
-        </div>
-        <div class="price">₹59</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Chocolate Milkshake</div>
-        </div>
-        <div class="price">₹59</div>
-      </div>
-    </div>
-
-    <div id="mojitos" class="menu-category hidden">
-      <h2>🍹 Mojitos</h2>
-      <div class="item">
-        <div>
-          <div class="item-name">Classic</div>
-        </div>
-        <div class="price">₹50</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Black Current</div>
-        </div>
-        <div class="price">₹59</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Green Apple</div>
-        </div>
-        <div class="price">₹59</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Blueberry</div>
-        </div>
-        <div class="price">₹59</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Lime Mint Cooler</div>
-        </div>
-        <div class="price">₹59</div>
-      </div>
-    </div>
-
-    <div id="egg" class="menu-category hidden">
-      <h2>🥚 Egg Corner</h2>
-      <div class="item">
-        <div>
-          <div class="item-name">Classic Omelette</div>
-        </div>
-        <div class="price">₹29</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Half Boiled Omelette</div>
-        </div>
-        <div class="price">₹29</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Bread Omelette</div>
-        </div>
-        <div class="price">₹39</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Cheese Omelette</div>
-        </div>
-        <div class="price">₹49</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Marley's Den Special Ross Omlette</div>
-        </div>
-        <div class="price">₹89</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="item-name">Scrambled Eggs</div>
-        </div>
-        <div class="price">₹39</div>
-      </div>
-    </div>
-
-
-    <div id="healthy" class="menu-category hidden">
-      <h2>🍓 Healthy Bowls</h2>
-
-      <div class="item">
-        <div>
-          <div class="item-name">Fruit Bowl</div>
-          <div class="item-desc">Fresh seasonal fruits served chilled</div>
-        </div>
-        <div class="price">₹69</div>
       </div>
 
-    </div>
-
-    <div id="juices" class="menu-category hidden">
-      <h2>🧃 Juices</h2>
-      <div class="item">
-        <div>
-          <div class="item-name">Mango Juice</div>
-          <div class="item-desc">Sweet and rich fresh mango juice</div>
+      <div id="tea" class="menu-category hidden">
+        <h2>☕ Tea</h2>
+        <div class="item">
+          <div>
+            <div class="item-name">Single Tea</div>
+          </div>
+          <div class="price">₹10</div>
         </div>
-        <div class="price">₹59</div>
+        <div class="item">
+          <div>
+            <div class="item-name">Full Tea</div>
+          </div>
+          <div class="price">₹15</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Black Tea</div>
+          </div>
+          <div class="price">₹15</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Ginger Tea</div>
+          </div>
+          <div class="price">₹15</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Ginger Lemon Tea</div>
+          </div>
+          <div class="price">₹20</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Elaichi Tea</div>
+          </div>
+          <div class="price">₹20</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Lemon Tea</div>
+          </div>
+          <div class="price">₹20</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Masala Tea</div>
+          </div>
+          <div class="price">₹20</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Jaggery Tea</div>
+          </div>
+          <div class="price">₹20</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Green Tea</div>
+          </div>
+          <div class="price">₹25</div>
+        </div>
       </div>
 
-      <div class="item">
-        <div>
-          <div class="item-name">Watermelon Juice</div>
-          <div class="item-desc">Cool and refreshing summer drink</div>
+      <div id="coffee" class="menu-category hidden">
+        <h2>☕ Coffees</h2>
+        <div class="item">
+          <div>
+            <div class="item-name">Coffee</div>
+          </div>
+          <div class="price">₹20</div>
         </div>
-        <div class="price">₹49</div>
-      </div>
-    </div>
-
-    <div id="biryani" class="menu-category hidden">
-      <h2>🍗 Biryani</h2>
-
-      <div class="item">
-        <div>
-          <div class="item-name">Chicken Biryani</div>
+        <div class="item">
+          <div>
+            <div class="item-name">Black Coffee</div>
+          </div>
+          <div class="price">₹15</div>
         </div>
-        <div class="price">₹99</div>
+        <div class="item">
+          <div>
+            <div class="item-name">Ginger Coffee</div>
+          </div>
+          <div class="price">₹25</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Hot Chocolate</div>
+          </div>
+          <div class="price">₹49</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Cold Coffee</div>
+          </div>
+          <div class="price">₹59</div>
+        </div>
       </div>
-    </div>
 
-    <script>
+      <div id="snacks" class="menu-category hidden">
+        <h2>🍟 Snacks</h2>
+        <div class="item">
+          <div>
+            <div class="item-name">Samosa</div>
+          </div>
+          <div class="price">₹20</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">French Fries</div>
+          </div>
+          <div class="price">₹59</div>
+        </div>
+      </div>
 
-      window.addEventListener("load", function () {
-        setTimeout(function () {
-          const splash = document.getElementById("splashScreen");
-          const menu = document.getElementById("menuPage");
+      <div id="shakes" class="menu-category hidden">
+        <h2>🥛 Drinks & Shakes</h2>
+        <div class="item">
+          <div>
+            <div class="item-name">Lime Soda</div>
+          </div>
+          <div class="price">₹39</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Iced Tea</div>
+          </div>
+          <div class="price">₹39</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Lassi</div>
+          </div>
+          <div class="price">₹49</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Butter Milk</div>
+          </div>
+          <div class="price">₹29</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Lemonade</div>
+          </div>
+          <div class="price">₹39</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Sharjah</div>
+          </div>
+          <div class="price">₹59</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Vanilla Milkshake</div>
+          </div>
+          <div class="price">₹59</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Black Current Milkshake</div>
+          </div>
+          <div class="price">₹59</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Green Apple Milkshake</div>
+          </div>
+          <div class="price">₹59</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Black Current Milkshake</div>
+          </div>
+          <div class="price">₹59</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Oreo Milkshake</div>
+          </div>
+          <div class="price">₹59</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Chocolate Milkshake</div>
+          </div>
+          <div class="price">₹59</div>
+        </div>
+      </div>
 
-          splash.classList.add("fade-out");
+      <div id="mojitos" class="menu-category hidden">
+        <h2>🍹 Mojitos</h2>
+        <div class="item">
+          <div>
+            <div class="item-name">Classic</div>
+          </div>
+          <div class="price">₹50</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Black Current</div>
+          </div>
+          <div class="price">₹59</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Green Apple</div>
+          </div>
+          <div class="price">₹59</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Blueberry</div>
+          </div>
+          <div class="price">₹59</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Lime Mint Cooler</div>
+          </div>
+          <div class="price">₹59</div>
+        </div>
+      </div>
 
+      <div id="egg" class="menu-category hidden">
+        <h2>🥚 Egg Corner</h2>
+        <div class="item">
+          <div>
+            <div class="item-name">Classic Omelette</div>
+          </div>
+          <div class="price">₹29</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Half Boiled Omelette</div>
+          </div>
+          <div class="price">₹29</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Bread Omelette</div>
+          </div>
+          <div class="price">₹39</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Cheese Omelette</div>
+          </div>
+          <div class="price">₹49</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Marley's Den Special Ross Omlette</div>
+          </div>
+          <div class="price">₹89</div>
+        </div>
+        <div class="item">
+          <div>
+            <div class="item-name">Scrambled Eggs</div>
+          </div>
+          <div class="price">₹39</div>
+        </div>
+      </div>
+
+
+      <div id="healthy" class="menu-category hidden">
+        <h2>🍓 Healthy Bowls</h2>
+
+        <div class="item">
+          <div>
+            <div class="item-name">Fruit Bowl</div>
+            <div class="item-desc">Fresh seasonal fruits served chilled</div>
+          </div>
+          <div class="price">₹69</div>
+        </div>
+
+      </div>
+
+      <div id="juices" class="menu-category hidden">
+        <h2>🧃 Juices</h2>
+        <div class="item">
+          <div>
+            <div class="item-name">Mango Juice</div>
+            <div class="item-desc">Sweet and rich fresh mango juice</div>
+          </div>
+          <div class="price">₹59</div>
+        </div>
+
+        <div class="item">
+          <div>
+            <div class="item-name">Watermelon Juice</div>
+            <div class="item-desc">Cool and refreshing summer drink</div>
+          </div>
+          <div class="price">₹49</div>
+        </div>
+      </div>
+
+      <div id="biryani" class="menu-category hidden">
+        <h2>🍗 Biryani</h2>
+
+        <div class="item">
+          <div>
+            <div class="item-name">Chicken Biryani</div>
+          </div>
+          <div class="price">₹99</div>
+        </div>
+      </div>
+
+      <script>
+
+        window.addEventListener("load", function () {
           setTimeout(function () {
-            splash.style.display = "none";
-            menu.style.display = "block";
-          }, 600);
+            const splash = document.getElementById("splashScreen");
+            const menu = document.getElementById("menuPage");
 
-        }, 2000);
-      });
+            splash.classList.add("fade-out");
 
-      function showCategory(categoryId, button) {
-        const categories = document.querySelectorAll(".menu-category");
-        categories.forEach(category => category.classList.add("hidden"));
+            setTimeout(function () {
+              splash.style.display = "none";
+              menu.style.display = "block";
+            }, 600);
 
-        document.getElementById(categoryId).classList.remove("hidden");
+          }, 2000);
+        });
 
-        const buttons = document.querySelectorAll(".category-btn");
-        buttons.forEach(btn => btn.classList.remove("active"));
+        function showCategory(categoryId, button) {
+          const categories = document.querySelectorAll(".menu-category");
+          categories.forEach(category => category.classList.add("hidden"));
 
-        button.classList.add("active");
-      }
-    </script>
+          document.getElementById(categoryId).classList.remove("hidden");
+
+          const buttons = document.querySelectorAll(".category-btn");
+          buttons.forEach(btn => btn.classList.remove("active"));
+
+          button.classList.add("active");
+        }
+      </script>
 
 </body>
 
