@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,18 +10,88 @@
     body {
       margin: 0;
       font-family: "Poppins", Arial, sans-serif;
-      background: #f4d8d0;
-      color: #333;
+      color: #243f73;
+      background:
+        radial-gradient(circle at top left, rgba(255, 220, 205, 0.9), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(36, 63, 115, 0.18), transparent 35%),
+        linear-gradient(135deg, #fff4ec, #f4d8d0);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Animated Background Decoration */
+
+    .bg-shape {
+      position: fixed;
+      border-radius: 50%;
+      opacity: 0.35;
+      z-index: -1;
+      animation: floatShape 6s ease-in-out infinite;
+    }
+
+    .bg-shape.one {
+      width: 120px;
+      height: 120px;
+      background: #ffb8a5;
+      top: 80px;
+      left: -40px;
+    }
+
+    .bg-shape.two {
+      width: 160px;
+      height: 160px;
+      background: #243f73;
+      bottom: 120px;
+      right: -70px;
+      animation-delay: 1s;
+    }
+
+    .bg-shape.three {
+      width: 80px;
+      height: 80px;
+      background: #ffd7a8;
+      top: 55%;
+      left: 20px;
+      animation-delay: 2s;
+    }
+
+    @keyframes floatShape {
+      0% {
+        transform: translateY(0) scale(1);
+      }
+
+      50% {
+        transform: translateY(-20px) scale(1.05);
+      }
+
+      100% {
+        transform: translateY(0) scale(1);
+      }
     }
 
     .phone {
       max-width: 430px;
       margin: 25px auto;
-      background: #fff;
-      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 32px;
       padding: 24px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      box-shadow: 0 18px 45px rgba(36, 63, 115, 0.22);
       min-height: 90vh;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      animation: pageEnter 0.8s ease;
+    }
+
+    @keyframes pageEnter {
+      from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.96);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
     }
 
     .logo {
@@ -29,32 +100,62 @@
       margin-bottom: 18px;
     }
 
-    h1, h2, h3 {
+    h1,
+    h2,
+    h3 {
       text-align: center;
-      font-weight: 500;
+      font-weight: 600;
     }
 
-    .categories {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: center;
-      margin-bottom: 20px;
+    h1 {
+      font-size: 30px;
+      color: #243f73;
+      margin-bottom: 5px;
+      letter-spacing: 0.5px;
+    }
+
+    h2 {
+      color: #243f73;
+      font-size: 24px;
+      margin-top: 22px;
+    }
+
+    h3 {
+      color: #7c4f35;
+      font-size: 16px;
+    }
+
+    .tagline {
+      text-align: center;
+      font-size: 13px;
+      color: #7c4f35;
+      margin-top: -2px;
+      margin-bottom: 18px;
+      letter-spacing: 0.5px;
     }
 
     .category-btn {
       border: none;
-      background: #f4f4f4;
-      padding: 8px 12px;
-      border-radius: 20px;
+      background: #fff7f2;
+      color: #243f73;
+      padding: 9px 13px;
+      border-radius: 22px;
       cursor: pointer;
       font-size: 13px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(36, 63, 115, 0.12);
+      transition: all 0.25s ease;
+    }
+
+    .category-btn:hover {
+      transform: translateY(-3px);
+      background: #ffe6d8;
     }
 
     .category-btn.active {
       background: #243f73;
       color: #fff;
+      transform: scale(1.05);
+      box-shadow: 0 8px 18px rgba(36, 63, 115, 0.35);
     }
 
     .note {
@@ -76,13 +177,37 @@
       display: flex;
       justify-content: space-between;
       gap: 15px;
-      padding: 14px 0;
-      border-bottom: 1px solid #eee;
+      padding: 14px;
+      margin: 10px 0;
+      border-bottom: none;
+      background: #fffaf7;
+      border-radius: 18px;
+      box-shadow: 0 5px 16px rgba(36, 63, 115, 0.08);
+      animation: itemSlide 0.45s ease;
+      transition: all 0.25s ease;
+    }
+
+    .item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(36, 63, 115, 0.16);
+    }
+
+    @keyframes itemSlide {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .item-name {
       font-size: 15px;
-      font-weight: 500;
+      font-weight: 600;
+      color: #243f73;
     }
 
     .item-desc {
@@ -94,58 +219,75 @@
     }
 
     .price {
-      font-size: 14px;
-      font-weight: 500;
+      font-size: 15px;
+      font-weight: 700;
       white-space: nowrap;
+      color: #7c4f35;
     }
-    
+
     /* CHEF WELCOME SCREEN */
 
-.splash-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100dvh;
-  background: #f4d8d0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  padding: 10px;
-  box-sizing: border-box;
-  overflow: hidden;
-}
+    .splash-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100dvh;
+      background: #f4d8d0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 10px;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
 
-.splash-screen.fade-out {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.6s ease, visibility 0.6s ease;
-}
+    .splash-screen.fade-out {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
 
-.chef-welcome-image {
-  width: 100%;
-  max-width: 100%;
-  max-height: 100dvh;
-  height: auto;
-  object-fit: contain;
-  animation: chefMove 2.5s ease-in-out infinite;
-  display: block;
-}
+    .chef-welcome-image {
+      width: 100%;
+      max-width: 100%;
+      max-height: 100dvh;
+      height: auto;
+      object-fit: contain;
+      animation: chefMove 2.5s ease-in-out infinite;
+      display: block;
+    }
 
-@keyframes chefMove {
-  0% {
-    transform: scale(0.95) translateY(0);
-  }
+    @keyframes chefMove {
+      0% {
+        transform: scale(0.95) translateY(0);
+      }
 
-  50% {
-    transform: scale(0.98) translateY(-6px);
-  }
+      50% {
+        transform: scale(0.98) translateY(-6px);
+      }
 
-  100% {
-    transform: scale(0.95) translateY(0);
-  }
-}
+      100% {
+        transform: scale(0.95) translateY(0);
+      }
+    }
+
+    .menu-category {
+      animation: categoryFade 0.45s ease;
+    }
+
+    @keyframes categoryFade {
+      from {
+        opacity: 0;
+        transform: translateX(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
 
     .hidden {
       display: none;
@@ -155,14 +297,17 @@
 
 <body>
 
+  <div class="bg-shape one"></div>
+  <div class="bg-shape two"></div>
+  <div class="bg-shape three"></div>
+
   <div class="splash-screen" id="splashScreen">
     <img src="chef-welcome.png" alt="Welcome to Marley's Den" class="chef-welcome-image">
   </div>
 
   <div class="phone" id="menuPage" style="display: none;">
-    <h1>☕ Marley's Den ☕</h1>
-    <p style="text-align:center; font-size:13px; color:#777; margin-top:-10px;">
-    </p>
+    <h1>☕ Marley's Den</h1>
+    <p class="tagline">Good Food • Good Vibes • Great Times</p>
     <h3>Categories</h3>
 
     <div class="categories">
@@ -182,156 +327,402 @@
 
     <div id="maggi" class="menu-category">
       <h2>🍜 Maggi Specials</h2>
-      <div class="item"><div><div class="item-name">Classic Maggi</div></div><div class="price">₹45</div></div>
-      <div class="item"><div><div class="item-name">Veg Loaded</div></div><div class="price">₹49</div></div>
-      <div class="item"><div><div class="item-name">Cheesy Fried</div></div><div class="price">₹59</div></div>
-      <div class="item"><div><div class="item-name">Pepper Maggi</div></div><div class="price">₹49</div></div>
-      <div class="item"><div><div class="item-name">Egg Maggi</div></div><div class="price">₹59</div></div>
+      <div class="item">
+        <div>
+          <div class="item-name">Classic Maggi</div>
+        </div>
+        <div class="price">₹45</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Veg Loaded</div>
+        </div>
+        <div class="price">₹49</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Cheesy Fried</div>
+        </div>
+        <div class="price">₹59</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Pepper Maggi</div>
+        </div>
+        <div class="price">₹49</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Egg Maggi</div>
+        </div>
+        <div class="price">₹59</div>
+      </div>
 
       <h3 class="section-title">Add-Ons</h3>
-      <div class="item"><div><div class="item-name">Extra Cheese</div></div><div class="price">₹20</div></div>
-      <div class="item"><div><div class="item-name">Extra Omelette</div></div><div class="price">₹20</div></div>
-      <div class="item"><div><div class="item-name">Half Boiled Omelette</div></div><div class="price">₹20</div></div>
-      <div class="item"><div><div class="item-name">Boiled Egg</div></div><div class="price">₹15</div></div>
+      <div class="item">
+        <div>
+          <div class="item-name">Extra Cheese</div>
+        </div>
+        <div class="price">₹20</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Extra Omelette</div>
+        </div>
+        <div class="price">₹20</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Half Boiled Omelette</div>
+        </div>
+        <div class="price">₹20</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Boiled Egg</div>
+        </div>
+        <div class="price">₹15</div>
+      </div>
     </div>
 
     <div id="tea" class="menu-category hidden">
       <h2>☕ Tea</h2>
-      <div class="item"><div><div class="item-name">Single Tea</div></div><div class="price">₹10</div></div>
-      <div class="item"><div><div class="item-name">Full Tea</div></div><div class="price">₹15</div></div>
-      <div class="item"><div><div class="item-name">Black Tea</div></div><div class="price">₹15</div></div>
-      <div class="item"><div><div class="item-name">Ginger Tea</div></div><div class="price">₹15</div></div>
-      <div class="item"><div><div class="item-name">Ginger Lemon Tea</div></div><div class="price">₹20</div></div>
-      <div class="item"><div><div class="item-name">Elaichi Tea</div></div><div class="price">₹20</div></div>
-      <div class="item"><div><div class="item-name">Lemon Tea</div></div><div class="price">₹20</div></div>
-      <div class="item"><div><div class="item-name">Masala Tea</div></div><div class="price">₹20</div></div>
-      <div class="item"><div><div class="item-name">Jaggery Tea</div></div><div class="price">₹20</div></div>
-      <div class="item"><div><div class="item-name">Green Tea</div></div><div class="price">₹25</div></div>
+      <div class="item">
+        <div>
+          <div class="item-name">Single Tea</div>
+        </div>
+        <div class="price">₹10</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Full Tea</div>
+        </div>
+        <div class="price">₹15</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Black Tea</div>
+        </div>
+        <div class="price">₹15</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Ginger Tea</div>
+        </div>
+        <div class="price">₹15</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Ginger Lemon Tea</div>
+        </div>
+        <div class="price">₹20</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Elaichi Tea</div>
+        </div>
+        <div class="price">₹20</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Lemon Tea</div>
+        </div>
+        <div class="price">₹20</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Masala Tea</div>
+        </div>
+        <div class="price">₹20</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Jaggery Tea</div>
+        </div>
+        <div class="price">₹20</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Green Tea</div>
+        </div>
+        <div class="price">₹25</div>
+      </div>
     </div>
 
     <div id="coffee" class="menu-category hidden">
       <h2>☕ Coffees</h2>
-      <div class="item"><div><div class="item-name">Coffee</div></div><div class="price">₹20</div></div>
-      <div class="item"><div><div class="item-name">Black Coffee</div></div><div class="price">₹15</div></div>
-      <div class="item"><div><div class="item-name">Ginger Coffee</div></div><div class="price">₹25</div></div>
-      <div class="item"><div><div class="item-name">Hot Chocolate</div></div><div class="price">₹49</div></div>
-      <div class="item"><div><div class="item-name">Cold Coffee</div></div><div class="price">₹59</div></div>
+      <div class="item">
+        <div>
+          <div class="item-name">Coffee</div>
+        </div>
+        <div class="price">₹20</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Black Coffee</div>
+        </div>
+        <div class="price">₹15</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Ginger Coffee</div>
+        </div>
+        <div class="price">₹25</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Hot Chocolate</div>
+        </div>
+        <div class="price">₹49</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Cold Coffee</div>
+        </div>
+        <div class="price">₹59</div>
+      </div>
     </div>
 
     <div id="snacks" class="menu-category hidden">
       <h2>🍟 Snacks</h2>
-      <div class="item"><div><div class="item-name">Samosa</div></div><div class="price">₹20</div></div>
-      <div class="item"><div><div class="item-name">French Fries</div></div><div class="price">₹59</div></div>
+      <div class="item">
+        <div>
+          <div class="item-name">Samosa</div>
+        </div>
+        <div class="price">₹20</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">French Fries</div>
+        </div>
+        <div class="price">₹59</div>
+      </div>
     </div>
 
     <div id="shakes" class="menu-category hidden">
       <h2>🥛 Drinks & Shakes</h2>
-      <div class="item"><div><div class="item-name">Lime Soda</div></div><div class="price">₹39</div></div>
-      <div class="item"><div><div class="item-name">Iced Tea</div></div><div class="price">₹39</div></div>
-      <div class="item"><div><div class="item-name">Lassi</div></div><div class="price">₹49</div></div>
-      <div class="item"><div><div class="item-name">Butter Milk</div></div><div class="price">₹29</div></div>
-      <div class="item"><div><div class="item-name">Lemonade</div></div><div class="price">₹39</div></div>
-      <div class="item"><div><div class="item-name">Sharjah</div></div><div class="price">₹59</div></div>
-      <div class="item"><div><div class="item-name">Vanilla Milkshake</div></div><div class="price">₹59</div></div>
-      <div class="item"><div><div class="item-name">Black Current Milkshake</div></div><div class="price">₹59</div></div>
-      <div class="item"><div><div class="item-name">Green Apple Milkshake</div></div><div class="price">₹59</div></div>
-      <div class="item"><div><div class="item-name">Black Current Milkshake</div></div><div class="price">₹59</div></div>
-      <div class="item"><div><div class="item-name">Oreo Milkshake</div></div><div class="price">₹59</div></div>
-      <div class="item"><div><div class="item-name">Chocolate Milkshake</div></div><div class="price">₹59</div></div>
+      <div class="item">
+        <div>
+          <div class="item-name">Lime Soda</div>
+        </div>
+        <div class="price">₹39</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Iced Tea</div>
+        </div>
+        <div class="price">₹39</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Lassi</div>
+        </div>
+        <div class="price">₹49</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Butter Milk</div>
+        </div>
+        <div class="price">₹29</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Lemonade</div>
+        </div>
+        <div class="price">₹39</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Sharjah</div>
+        </div>
+        <div class="price">₹59</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Vanilla Milkshake</div>
+        </div>
+        <div class="price">₹59</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Black Current Milkshake</div>
+        </div>
+        <div class="price">₹59</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Green Apple Milkshake</div>
+        </div>
+        <div class="price">₹59</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Black Current Milkshake</div>
+        </div>
+        <div class="price">₹59</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Oreo Milkshake</div>
+        </div>
+        <div class="price">₹59</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Chocolate Milkshake</div>
+        </div>
+        <div class="price">₹59</div>
+      </div>
     </div>
 
     <div id="mojitos" class="menu-category hidden">
       <h2>🍹 Mojitos</h2>
-      <div class="item"><div><div class="item-name">Classic</div></div><div class="price">₹50</div></div>
-      <div class="item"><div><div class="item-name">Black Current</div></div><div class="price">₹59</div></div>
-      <div class="item"><div><div class="item-name">Green Apple</div></div><div class="price">₹59</div></div>
-      <div class="item"><div><div class="item-name">Blueberry</div></div><div class="price">₹59</div></div>
-      <div class="item"><div><div class="item-name">Lime Mint Cooler</div></div><div class="price">₹59</div></div>
+      <div class="item">
+        <div>
+          <div class="item-name">Classic</div>
+        </div>
+        <div class="price">₹50</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Black Current</div>
+        </div>
+        <div class="price">₹59</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Green Apple</div>
+        </div>
+        <div class="price">₹59</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Blueberry</div>
+        </div>
+        <div class="price">₹59</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Lime Mint Cooler</div>
+        </div>
+        <div class="price">₹59</div>
+      </div>
     </div>
 
     <div id="egg" class="menu-category hidden">
       <h2>🥚 Egg Corner</h2>
-      <div class="item"><div><div class="item-name">Classic Omelette</div></div><div class="price">₹29</div></div>
-      <div class="item"><div><div class="item-name">Half Boiled Omelette</div></div><div class="price">₹29</div></div>
-      <div class="item"><div><div class="item-name">Bread Omelette</div></div><div class="price">₹39</div></div>
-      <div class="item"><div><div class="item-name">Cheese Omelette</div></div><div class="price">₹49</div></div>
-      <div class="item"><div><div class="item-name">Marley's Den Special Ross Omlette</div></div><div class="price">₹89</div></div>
-      <div class="item"><div><div class="item-name">Scrambled Eggs</div></div><div class="price">₹39</div></div>
+      <div class="item">
+        <div>
+          <div class="item-name">Classic Omelette</div>
+        </div>
+        <div class="price">₹29</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Half Boiled Omelette</div>
+        </div>
+        <div class="price">₹29</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Bread Omelette</div>
+        </div>
+        <div class="price">₹39</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Cheese Omelette</div>
+        </div>
+        <div class="price">₹49</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Marley's Den Special Ross Omlette</div>
+        </div>
+        <div class="price">₹89</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="item-name">Scrambled Eggs</div>
+        </div>
+        <div class="price">₹39</div>
+      </div>
     </div>
-  
 
-  <div id="healthy" class="menu-category hidden">
-  <h2>🍓 Healthy Bowls</h2>
 
-  <div class="item">
-    <div>
-      <div class="item-name">Fruit Bowl</div>
-      <div class="item-desc">Fresh seasonal fruits served chilled</div>
+    <div id="healthy" class="menu-category hidden">
+      <h2>🍓 Healthy Bowls</h2>
+
+      <div class="item">
+        <div>
+          <div class="item-name">Fruit Bowl</div>
+          <div class="item-desc">Fresh seasonal fruits served chilled</div>
+        </div>
+        <div class="price">₹69</div>
+      </div>
+
     </div>
-    <div class="price">₹69</div>
-  </div>
 
-</div>
+    <div id="juices" class="menu-category hidden">
+      <h2>🧃 Juices</h2>
+      <div class="item">
+        <div>
+          <div class="item-name">Mango Juice</div>
+          <div class="item-desc">Sweet and rich fresh mango juice</div>
+        </div>
+        <div class="price">₹59</div>
+      </div>
 
-<div id="juices" class="menu-category hidden">
-  <h2>🧃 Juices</h2>
-  <div class="item">
-  <div>
-    <div class="item-name">Mango Juice</div>
-    <div class="item-desc">Sweet and rich fresh mango juice</div>
-  </div>
-  <div class="price">₹59</div>
-</div>
-
-<div class="item">
-  <div>
-    <div class="item-name">Watermelon Juice</div>
-    <div class="item-desc">Cool and refreshing summer drink</div>
-  </div>
-  <div class="price">₹49</div>
-</div>
-</div>
-
-  <div id="biryani" class="menu-category hidden">
-  <h2>🍗 Biryani</h2>
-
-  <div class="item">
-    <div>
-      <div class="item-name">Chicken Biryani</div>
+      <div class="item">
+        <div>
+          <div class="item-name">Watermelon Juice</div>
+          <div class="item-desc">Cool and refreshing summer drink</div>
+        </div>
+        <div class="price">₹49</div>
+      </div>
     </div>
-    <div class="price">₹99</div>
-  </div>
-  </div>
 
-  <script>
+    <div id="biryani" class="menu-category hidden">
+      <h2>🍗 Biryani</h2>
 
-    window.addEventListener("load", function () {
-      setTimeout(function () {
-        const splash = document.getElementById("splashScreen");
-        const menu = document.getElementById("menuPage");
+      <div class="item">
+        <div>
+          <div class="item-name">Chicken Biryani</div>
+        </div>
+        <div class="price">₹99</div>
+      </div>
+    </div>
 
-        splash.classList.add("fade-out");
+    <script>
 
+      window.addEventListener("load", function () {
         setTimeout(function () {
-          splash.style.display = "none";
-          menu.style.display = "block";
-        }, 600);
+          const splash = document.getElementById("splashScreen");
+          const menu = document.getElementById("menuPage");
 
-      }, 3000);
-    });
+          splash.classList.add("fade-out");
 
-    function showCategory(categoryId, button) {
-      const categories = document.querySelectorAll(".menu-category");
-      categories.forEach(category => category.classList.add("hidden"));
+          setTimeout(function () {
+            splash.style.display = "none";
+            menu.style.display = "block";
+          }, 600);
 
-      document.getElementById(categoryId).classList.remove("hidden");
+        }, 3000);
+      });
 
-      const buttons = document.querySelectorAll(".category-btn");
-      buttons.forEach(btn => btn.classList.remove("active"));
+      function showCategory(categoryId, button) {
+        const categories = document.querySelectorAll(".menu-category");
+        categories.forEach(category => category.classList.add("hidden"));
 
-      button.classList.add("active");
-    }
-  </script>
+        document.getElementById(categoryId).classList.remove("hidden");
+
+        const buttons = document.querySelectorAll(".category-btn");
+        buttons.forEach(btn => btn.classList.remove("active"));
+
+        button.classList.add("active");
+      }
+    </script>
 
 </body>
+
 </html>
